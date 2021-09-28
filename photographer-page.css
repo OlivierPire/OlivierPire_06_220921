@@ -1,0 +1,269 @@
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+
+header #logo {
+  width: 200px;
+  height: 50px;
+  margin-right: 80px;
+}
+
+main {
+  margin-left: 140px;
+  margin-right: 140px;
+  position: relative;
+}
+
+main .photographer_info {
+  background-color: #5252520a;
+  height: 280px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+main .photographer_info .name_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+main .photographer_info .name_container h1 {
+  color: #d3573c;
+  font-size: 3.5em;
+  font-weight: lighter;
+  margin-bottom: 0;
+  margin-right: 80px;
+}
+
+main .photographer_info .name_container #contact {
+  background-color: #901c1c;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 7px;
+  height: 60px;
+}
+
+main .photographer_info .location {
+  color: #901c1c;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+main .photographer_info .citation {
+  margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+main .photographer_info .hashtag {
+  border: 1px #52525246 solid;
+  border-radius: 25px;
+  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 0.8em;
+  color: #901c1c;
+}
+
+main .profil_picture {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 85px;
+  margin-left: 85px;
+  position: absolute;
+  top: 58px;
+  right: 0;
+}
+
+main #price_banner {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  background-color: #d3573c;
+  height: 40px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px 10px 0px 0px;
+}
+
+main #select_label {
+  font-weight: bold;
+}
+
+main .select_list {
+  margin-top: 10px;
+  background-color: #901c1c;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+main #all_pictures_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .picture_container {
+  width: 350px;
+}
+
+main .picture_container .description_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .picture_container .description_container h2 {
+  margin-top: 5px;
+}
+
+main .picture_container .description_container .likes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 35px;
+}
+
+main .picture_container .description_container .likes .picture_likes {
+  margin: 5px;
+}
+
+main .picture_container .description_container .likes .picture_heart {
+  color: #901c1c;
+}
+
+main .picture_container .picture {
+  width: 350px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: 40px;
+  border-radius: 5px;
+}
+
+main #form_contact {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 650px;
+  width: 530px;
+  background-color: #db8876;
+  border-radius: 5px;
+}
+
+main #form_contact h2 {
+  font-size: 2.5em;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+main #form_contact #form_name {
+  margin-left: 20px;
+  font-size: 2.3em;
+  margin-bottom: 20px;
+}
+
+main #form_contact form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 480px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+main #form_contact form label {
+  font-size: 1.3em;
+  margin-bottom: 3px;
+}
+
+main #form_contact form input {
+  height: 40px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+
+main #form_contact form #message {
+  height: 120px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5em;
+}
+
+main #form_contact form #btn_submit {
+  background-color: #901c1c;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 7px;
+  height: 60px;
+  width: 160px;
+  margin-top: 20px;
+}
+/*# sourceMappingURL=photographer-page.css.map */

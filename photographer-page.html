@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="photographer-page.css">
+    <script src="https://kit.fontawesome.com/976e89b6e5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" id="logo" alt="Fisheye Home page">
+        </a>
+    </header>
+
+    <main>
+        <div class="photographer_info">
+            <div class="name_container">
+                <h1>Emilie-Rose Wilkens</h1>
+                <button id="contact">Contactez-moi</button>
+            </div>
+            <p class="location">London, Uk</p>
+            <p class="citation">Voir le beau dans le quotidien</p>
+            <div class="hashtag_container">
+                <a href="" class="hashtag">#photos</a>
+            </div>
+        </div>
+
+        <img src="images/EllieRoseWilkens.jpg" class="profil_picture">
+
+        <div id="price_banner">
+            <span id="like_number"><i class="fas fa-heart"></i></span>
+            <span id="price">€/jour</span>
+        </div>
+
+        <label for="select" id="select_label">Trier par</label>
+        <select class="select_list" id="select">
+            <option value="popular">Popularité</option>
+            <option value="date">Date</option>
+            <option value="title">Titre</option>
+        </select>
+
+        <div id="all_pictures_container">
+            <div class="picture_container">
+                <a href=""><img src="images/Architecture_Cross_Bar.jpg" class="picture" alt=""></a>
+                <div class="description_container">
+                    <h2 class="picture_title">Photo</h2>
+                    <div class="likes">
+                        <p class="picture_likes">10</p>
+                        <i class="fas fa-heart picture_heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="form_contact">
+            <h2>Contactez-moi</h2>
+            <span id="form_name">Mimi Keel</span>
+            <form action="">
+                <label for="first">Prénom</label>
+                <input type="text" class="text_control" id="first">
+
+                <label for="last">Nom</label>
+                <input type="text" class="text_control" id="last">
+
+                <label for="email">Email</label>
+                <input type="email" class="text_control" id="email">
+
+                <label for="message">Votre message</label>
+                <textarea class="text_control" rows="10" cols="5" id="message"></textarea>
+
+                <input type="submit" id="btn_submit" value="Envoyer">
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
