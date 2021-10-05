@@ -1,8 +1,10 @@
 import User from "./User.js";
 
+const main = document.querySelector("main");
+
 const photographers = [];
 
-fetch("data.json")
+fetch("json/data.json")
   .then((res) => res.json())
   .then((data) => {
     data.photographers.forEach((element) => {
@@ -16,9 +18,10 @@ fetch("data.json")
         element.price,
         element.portrait,
       );
-      user.createCard();
+      user.createCard(main);
       photographers.push(user);
+      
     });
   });
-
-
+  
+//id, photographerId, title, image, tags, date, likes, price

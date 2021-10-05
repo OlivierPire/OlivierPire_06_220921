@@ -35,6 +35,16 @@ main {
   margin-right: 140px;
   position: relative;
 
+  #contact {
+    background-color: $primary-color;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 7px;
+    height: 60px;
+    z-index: 1;
+  }
+
   .photographer_info {
     background-color: #5252520a;
     height: 280px;
@@ -51,15 +61,6 @@ main {
         font-weight: lighter;
         margin-bottom: 0;
         margin-right: 80px;
-      }
-
-      #contact {
-        background-color: $primary-color;
-        color: white;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 7px;
-        height: 60px;
       }
     }
 

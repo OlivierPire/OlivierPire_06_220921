@@ -32,6 +32,16 @@ main {
   position: relative;
 }
 
+main #contact {
+  background-color: #901c1c;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 7px;
+  height: 60px;
+  z-index: 1;
+}
+
 main .photographer_info {
   background-color: #5252520a;
   height: 280px;
@@ -54,15 +64,6 @@ main .photographer_info .name_container h1 {
   font-weight: lighter;
   margin-bottom: 0;
   margin-right: 80px;
-}
-
-main .photographer_info .name_container #contact {
-  background-color: #901c1c;
-  color: white;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 7px;
-  height: 60px;
 }
 
 main .photographer_info .location {
