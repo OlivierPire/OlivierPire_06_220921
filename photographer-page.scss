@@ -30,21 +30,18 @@ header {
   }
 }
 
-main {
-  margin-left: 140px;
-  margin-right: 140px;
-  position: relative;
+#contact {
+  background-color: $primary-color;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 7px;
+  height: 60px;
+  cursor: pointer;
+}
 
-  #contact {
-    background-color: $primary-color;
-    color: white;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 7px;
-    height: 60px;
-    z-index: 1;
-  }
-
+#profile_container {
+  
   .photographer_info {
     background-color: #5252520a;
     height: 280px;
@@ -99,7 +96,7 @@ main {
     right: 0;
   }
 
-  #price_banner {
+  .price_banner {
     position: fixed;
     bottom: 0;
     right: 20px;
@@ -111,6 +108,13 @@ main {
     align-items: center;
     border-radius: 10px 10px 0px 0px;
   }
+}
+
+
+main {
+  margin-left: 140px;
+  margin-right: 140px;
+  position: relative;
 
   #select_label {
     font-weight: bold;
@@ -169,8 +173,7 @@ main {
     }
   }
 
-  #form_contact {
-    display: none;
+  .form_contact {
     flex-direction: column;
     position: fixed;
     top: 50%;
@@ -180,6 +183,16 @@ main {
     width: 530px;
     background-color: #db8876;
     border-radius: 5px;
+    display: none;
+
+    .close_form {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      font-size: 2.2em;
+      cursor: pointer;
+      color: white;    
+    }
 
     h2 {
       font-size: 2.5em;
@@ -187,7 +200,7 @@ main {
       margin-bottom: 0;
     }
 
-    #form_name {
+    .form_name {
       margin-left: 20px;
       font-size: 2.3em;
       margin-bottom: 20px;
@@ -230,6 +243,7 @@ main {
         height: 60px;
         width: 160px;
         margin-top: 20px;
+        cursor: pointer;
       }
     }
   }

@@ -1,11 +1,13 @@
 import MediaFactory from "./MediaFactory.js";
 import Profile from "./Profile.js";
 
-
 const url = new URL(window.location.href);
 const idPhotographe = parseInt(url.searchParams.get("id"));
 const media = [];
-const main = document.querySelector("main");
+const profileContainer = document.getElementById("profile_container");
+const btnContact = document.getElementById("contact");
+const form = document.querySelector(".form_contact");
+const close = document.querySelector(".close_form");
 
 fetch("json/data.json")
   .then((res) => res.json())
@@ -21,11 +23,13 @@ fetch("json/data.json")
             element.tags,
             element.likes,
             element.date,
-            element.price
+            element.price,
+            element.image,
+            element.video
           )
-        ); //function
+        );
       }
-    }); 
+    });
     return data.photographers;
   })
   .then((data) => {
@@ -42,16 +46,28 @@ fetch("json/data.json")
           element.title,
           element.image,
           element.tags,
-          element.date,
           element.likes,
+          element.date,
           element.price,
         );
-        profile.generateProfile(main);
+        profile.generateProfile(profileContainer);
       }
     });
-  })
+  });
+
+  const launchForm = () => {
+    form.style.display = "inline-block"
+  }
+
+  btnContact.addEventListener("click", launchForm);
+
+  const closeForm = () => {
+    form.style.display = "none";
+  }
+
+  close.addEventListener("click", closeForm)
   
-  
+
   
 
 /* const profile = new Profile(

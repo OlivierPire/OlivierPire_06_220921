@@ -1,20 +1,5 @@
-
 export default class Profile {
-  constructor(
-    name,
-    city,
-    country,
-    tagline,
-    portrait,
-    id,
-    photographerId,
-    title,
-    image,
-    tags,
-    date,
-    likes,
-    price
-  ) {
+  constructor(name, city, country, tagline, portrait, id, photographerId, title, image, tags, likes, date, price) {
     this.city = city;
     this.country = country;
     this.tagline = tagline;
@@ -25,16 +10,71 @@ export default class Profile {
     this.title = title;
     this.image = image;
     this.tags = tags;
-    this.date = date;
     this.likes = likes;
+    this.date = date;
     this.price = price;
   }
 
-  generateProfile(main) {
-    main.innerHTML = `
+  generateProfile(profileContainer) { // ajout contact
+    const btnContact = document.getElementById("contact");
+    const photographerInfo = document.createElement("div");
+    photographerInfo.classList.add("photographer_info");
+    profileContainer.append(photographerInfo); 
+    const nameContainer = document.createElement("div");
+    nameContainer.classList.add("name_container");
+    photographerInfo.appendChild(nameContainer);
+    const name = document.createElement("h1");
+    name.textContent = this.name;
+    nameContainer.appendChild(name);
+    nameContainer.appendChild(btnContact);
+    const location = document.createElement("p");
+    location.classList.add("location");
+    location.textContent = this.city + ", " + this.country;
+    photographerInfo.appendChild(location);
+    const citation = document.createElement("p");
+    citation.classList.add("citation");
+    citation.textContent = this.tagline;
+    photographerInfo.appendChild(citation);
+    const tagsContainer = document.createElement("div");
+    photographerInfo.appendChild(tagsContainer);
+    tagsContainer.classList.add("hashtag_container");
+
+    for (let tag in this.tags) {
+      const tags = document.createElement("a");
+      tagsContainer.appendChild(tags);
+      tags.classList.add("hashtag");
+      tags.textContent = `#${this.tags[tag]}`;
+    }
+
+    const profilePicture = document.createElement("img");
+    profilePicture.src = "images/Photographers/" + this.portrait;
+    profilePicture.classList.add("profil_picture");
+    profileContainer.appendChild(profilePicture);
+    const priceBanner = document.createElement("div");
+    priceBanner.classList.add("price_banner");
+    profileContainer.appendChild(priceBanner);
+    const likesNumber = document.createElement("span");
+    likesNumber.classList.add("like_number");
+    priceBanner.appendChild(likesNumber);
+    const heart = document.createElement("i");
+    heart.classList.add("fas", "fa-heart");
+    priceBanner.appendChild(heart);
+    const price = document.createElement("span");
+    price.textContent = this.price + "€ /jour"
+    price.classList.add("price");
+    priceBanner.appendChild(price);
+    const form = document.querySelector(".form_contact");
+    const formName = document.createElement("span");
+    formName.textContent = this.name;
+    formName.classList.add("form_name");
+    form.insertBefore(formName, document.querySelector("form"));
+  }
+}
+
+    /*profileContainer.innerHTML = `
     <div class="photographer_info">
       <div class="name_container">
-        <h1>${this.name}</h1>
+        <h1>${this.name}</h1> 
       </div>
       <p class="location">${this.city}, ${this.country}</p>
       <p class="citation">${this.tagline}</p>
@@ -48,13 +88,13 @@ export default class Profile {
         <div id="price_banner">
             <span id="like_number"><i class="fas fa-heart"></i></span>
             <span id="price">${this.price}€/jour</span>
-        </div>
+        </div> 
     ` ;
   } 
 }
 
 
-/*<div class="photographer_info">
+<div class="photographer_info">
             <div class="name_container">
                 
             </div>

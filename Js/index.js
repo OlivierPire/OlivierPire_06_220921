@@ -16,12 +16,12 @@ fetch("json/data.json")
         element.tags,
         element.tagline,
         element.price,
-        element.portrait,
+        element.portrait
       );
       user.createCard(main);
       photographers.push(user);
-      
     });
   });
-  
-//id, photographerId, title, image, tags, date, likes, price
+
+  // Scroll Event
+  // Lier les tags

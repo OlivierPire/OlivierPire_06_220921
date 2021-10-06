@@ -26,30 +26,24 @@ header #logo {
   margin-right: 80px;
 }
 
-main {
-  margin-left: 140px;
-  margin-right: 140px;
-  position: relative;
-}
-
-main #contact {
+#contact {
   background-color: #901c1c;
   color: white;
   font-size: 1.2em;
   border: none;
   border-radius: 7px;
   height: 60px;
-  z-index: 1;
+  cursor: pointer;
 }
 
-main .photographer_info {
+#profile_container .photographer_info {
   background-color: #5252520a;
   height: 280px;
   padding: 20px;
   border-radius: 15px;
 }
 
-main .photographer_info .name_container {
+#profile_container .photographer_info .name_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,7 +52,7 @@ main .photographer_info .name_container {
           align-items: flex-end;
 }
 
-main .photographer_info .name_container h1 {
+#profile_container .photographer_info .name_container h1 {
   color: #d3573c;
   font-size: 3.5em;
   font-weight: lighter;
@@ -66,19 +60,19 @@ main .photographer_info .name_container h1 {
   margin-right: 80px;
 }
 
-main .photographer_info .location {
+#profile_container .photographer_info .location {
   color: #901c1c;
   font-size: 1.5em;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-main .photographer_info .citation {
+#profile_container .photographer_info .citation {
   margin-bottom: 30px;
   margin-bottom: 30px;
 }
 
-main .photographer_info .hashtag {
+#profile_container .photographer_info .hashtag {
   border: 1px #52525246 solid;
   border-radius: 25px;
   padding: 5px;
@@ -88,7 +82,7 @@ main .photographer_info .hashtag {
   color: #901c1c;
 }
 
-main .profil_picture {
+#profile_container .profil_picture {
   width: 200px;
   height: 200px;
   -o-object-fit: cover;
@@ -101,7 +95,7 @@ main .profil_picture {
   right: 0;
 }
 
-main #price_banner {
+#profile_container .price_banner {
   position: fixed;
   bottom: 0;
   right: 20px;
@@ -117,6 +111,12 @@ main #price_banner {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10px 10px 0px 0px;
+}
+
+main {
+  margin-left: 140px;
+  margin-right: 140px;
+  position: relative;
 }
 
 main #select_label {
@@ -194,8 +194,7 @@ main .picture_container .picture {
   border-radius: 5px;
 }
 
-main #form_contact {
-  display: none;
+main .form_contact {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -209,21 +208,31 @@ main #form_contact {
   width: 530px;
   background-color: #db8876;
   border-radius: 5px;
+  display: none;
 }
 
-main #form_contact h2 {
+main .form_contact .close_form {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 2.2em;
+  cursor: pointer;
+  color: white;
+}
+
+main .form_contact h2 {
   font-size: 2.5em;
   margin-left: 20px;
   margin-bottom: 0;
 }
 
-main #form_contact #form_name {
+main .form_contact .form_name {
   margin-left: 20px;
   font-size: 2.3em;
   margin-bottom: 20px;
 }
 
-main #form_contact form {
+main .form_contact form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,12 +245,12 @@ main #form_contact form {
   margin-right: 20px;
 }
 
-main #form_contact form label {
+main .form_contact form label {
   font-size: 1.3em;
   margin-bottom: 3px;
 }
 
-main #form_contact form input {
+main .form_contact form input {
   height: 40px;
   margin-bottom: 10px;
   border: none;
@@ -249,7 +258,7 @@ main #form_contact form input {
   font-size: 1.5em;
 }
 
-main #form_contact form #message {
+main .form_contact form #message {
   height: 120px;
   margin-bottom: 10px;
   border: none;
@@ -257,7 +266,7 @@ main #form_contact form #message {
   font-size: 1.5em;
 }
 
-main #form_contact form #btn_submit {
+main .form_contact form #btn_submit {
   background-color: #901c1c;
   color: white;
   font-size: 1.2em;
@@ -266,5 +275,6 @@ main #form_contact form #btn_submit {
   height: 60px;
   width: 160px;
   margin-top: 20px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=photographer-page.css.map */

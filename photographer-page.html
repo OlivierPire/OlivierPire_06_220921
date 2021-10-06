@@ -18,7 +18,11 @@
     </header>
 
     <main>
+        <div id="profile_container">
+        </div>
+
         <button id="contact">Contactez-moi</button>
+
         <label for="select" id="select_label">Trier par</label>
         <select class="select_list" id="select">
             <option value="popular">Popularité</option>
@@ -27,21 +31,11 @@
         </select>
 
         <div id="all_pictures_container">
-            <div class="picture_container">
-                <a href=""><img src="images/Architecture_Cross_Bar.jpg" class="picture" alt=""></a>
-                <div class="description_container">
-                    <h2 class="picture_title">Photo</h2>
-                    <div class="likes">
-                        <p class="picture_likes">10</p>
-                        <i class="fas fa-heart picture_heart"></i>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <div id="form_contact">
+        <div class="form_contact">
+            <i class="fas fa-times close_form"></i>
             <h2>Contactez-moi</h2>
-            <span id="form_name">identité</span>
             <form action="">
                 <label for="first">Prénom</label>
                 <input type="text" class="text_control" id="first">

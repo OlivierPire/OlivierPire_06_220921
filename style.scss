@@ -17,8 +17,9 @@ body {
     width: 180px;
     height: 30px;
     left: 50%;
-    right: 50px;
-    top: 8px;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    top: 28px;
     bottom: 0;
     border-radius: 12px 12px 12px 12px;
     display: flex;
@@ -27,7 +28,6 @@ body {
     font-weight: bold;
     z-index: 1;
     background-color: #db8876;
-    display: none;
   }
 
   .contact {
