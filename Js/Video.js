@@ -1,5 +1,5 @@
 export default class Video {
-    constructor(id,photographerId,title,tags,likes,date,price, source, video) {
+    constructor(id,photographerId,title,tags,likes,date,price, source) {
         this.id = id,
         this.photographerId = photographerId,
         this.title = title,
@@ -7,11 +7,10 @@ export default class Video {
         this.likes = likes,
         this.date = date,
         this.price = price,
-        this.source = source,
-        this.video = video
+        this.source = source
     }    
     
-    generateVideo() {
+    generateHtml() {
         const picturesContainer = document.getElementById("all_pictures_container");
         const picContainer = document.createElement("div");
         picContainer.classList.add("picture_container");
@@ -20,7 +19,7 @@ export default class Video {
         picContainer.appendChild(linkMedia);
         const video = document.createElement("video");
         video.setAttribute("controls", 0);
-        video.src = `images/${this.photographerId}/${this.video}`;
+        video.src = `images/${this.photographerId}/${this.source}`;
         linkMedia.appendChild(video);
         video.classList.add("picture");
         const description = document.createElement("div");

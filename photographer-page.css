@@ -200,11 +200,13 @@ main .form_contact {
       -ms-flex-direction: column;
           flex-direction: column;
   position: fixed;
+  -ms-flex-line-pack: center;
+      align-content: center;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  height: 650px;
+  height: auto;
   width: 530px;
   background-color: #db8876;
   border-radius: 5px;
@@ -226,10 +228,35 @@ main .form_contact h2 {
   margin-bottom: 0;
 }
 
+main .form_contact #validation_message {
+  margin: 50px;
+  font-weight: bold;
+  font-size: 2.9em;
+  display: none;
+}
+
 main .form_contact .form_name {
   margin-left: 20px;
   font-size: 2.3em;
   margin-bottom: 20px;
+}
+
+main .form_contact #btn_close {
+  margin: 20px;
+  margin-left: 50px;
+  display: none;
+}
+
+main .form_contact .btn {
+  background-color: #901c1c;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 7px;
+  height: 60px;
+  width: 160px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 main .form_contact form {
@@ -258,6 +285,10 @@ main .form_contact form input {
   font-size: 1.5em;
 }
 
+main .form_contact form .inputError {
+  border: 2px red solid;
+}
+
 main .form_contact form #message {
   height: 120px;
   margin-bottom: 10px;
@@ -266,15 +297,10 @@ main .form_contact form #message {
   font-size: 1.5em;
 }
 
-main .form_contact form #btn_submit {
-  background-color: #901c1c;
-  color: white;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 7px;
-  height: 60px;
-  width: 160px;
-  margin-top: 20px;
-  cursor: pointer;
+main .form_contact form .error {
+  color: #a50000;
+  text-align: right;
+  display: none;
+  font-weight: bold;
 }
 /*# sourceMappingURL=photographer-page.css.map */

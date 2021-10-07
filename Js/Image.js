@@ -9,8 +9,8 @@ export default class Image {
         this.price = price,
         this.source = source
     }    
-
-    generateImage() {
+    
+    generateHtml() {
         const picturesContainer = document.getElementById("all_pictures_container");
         const picContainer = document.createElement("div");
         picContainer.classList.add("picture_container");
@@ -38,6 +38,10 @@ export default class Image {
         const heart = document.createElement("i");
         heart.classList.add("fas","fa-heart","picture_heart");
         likes.appendChild(heart);
+        heart.addEventListener("click", () => {
+            this.likes++ 
+            likesNumber.textContent = this.likes;
+        })
     }
 }
 

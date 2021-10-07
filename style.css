@@ -32,6 +32,9 @@ body #backContent {
   font-weight: bold;
   z-index: 1;
   background-color: #db8876;
+  text-align: center;
+  padding-top: 5px;
+  display: none;
 }
 
 body .contact {

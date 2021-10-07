@@ -1,13 +1,11 @@
 import MediaFactory from "./MediaFactory.js";
 import Profile from "./Profile.js";
+import { modalDisplay } from "./modal.js";
 
 const url = new URL(window.location.href);
 const idPhotographe = parseInt(url.searchParams.get("id"));
 const media = [];
 const profileContainer = document.getElementById("profile_container");
-const btnContact = document.getElementById("contact");
-const form = document.querySelector(".form_contact");
-const close = document.querySelector(".close_form");
 
 fetch("json/data.json")
   .then((res) => res.json())
@@ -24,8 +22,7 @@ fetch("json/data.json")
             element.likes,
             element.date,
             element.price,
-            element.image,
-            element.video
+            "video" in element ? element.video : element.image            
           )
         );
       }
@@ -35,6 +32,7 @@ fetch("json/data.json")
   .then((data) => {
     data.forEach((element) => {
       if (element.id === idPhotographe) {
+        console.log(media);
         const profile = new Profile(
           element.name,
           element.city,
@@ -42,33 +40,14 @@ fetch("json/data.json")
           element.tagline,
           element.portrait,
           element.id,
-          element.photographerId,
-          element.title,
-          element.image,
           element.tags,
-          element.likes,
-          element.date,
           element.price,
+          media
         );
         profile.generateProfile(profileContainer);
       }
     });
   });
-
-  const launchForm = () => {
-    form.style.display = "inline-block"
-  }
-
-  btnContact.addEventListener("click", launchForm);
-
-  const closeForm = () => {
-    form.style.display = "none";
-  }
-
-  close.addEventListener("click", closeForm)
-  
-
-  
 
 /* const profile = new Profile(
     element.id,

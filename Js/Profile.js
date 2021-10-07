@@ -1,18 +1,14 @@
 export default class Profile {
-  constructor(name, city, country, tagline, portrait, id, photographerId, title, image, tags, likes, date, price) {
+  constructor(name, city, country, tagline, portrait, id, tags, price, media) {
     this.city = city;
     this.country = country;
     this.tagline = tagline;
     this.portrait = portrait;
     this.name = name;
     this.id = id;
-    this.photographerId = photographerId;
-    this.title = title;
-    this.image = image;
     this.tags = tags;
-    this.likes = likes;
-    this.date = date;
     this.price = price;
+    this.media = media;
   }
 
   generateProfile(profileContainer) { // ajout contact
@@ -53,7 +49,9 @@ export default class Profile {
     const priceBanner = document.createElement("div");
     priceBanner.classList.add("price_banner");
     profileContainer.appendChild(priceBanner);
+    let likes = this.calculateLikes();
     const likesNumber = document.createElement("span");
+    likesNumber.textContent = likes;
     likesNumber.classList.add("like_number");
     priceBanner.appendChild(likesNumber);
     const heart = document.createElement("i");
@@ -63,11 +61,26 @@ export default class Profile {
     price.textContent = this.price + "€ /jour"
     price.classList.add("price");
     priceBanner.appendChild(price);
-    const form = document.querySelector(".form_contact");
+    const form = document.querySelector(".formContent");
     const formName = document.createElement("span");
     formName.textContent = this.name;
     formName.classList.add("form_name");
     form.insertBefore(formName, document.querySelector("form"));
+    this.generateMedia();
+  }
+
+  calculateLikes() {
+    let resultat = 0;
+    this.media.forEach((media) => {
+      resultat = resultat + media.likes;
+    })
+    return resultat
+  }
+
+  generateMedia() {
+    this.media.forEach((media) => {
+      media.generateHtml()
+    })
   }
 }
 

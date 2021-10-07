@@ -18,7 +18,7 @@ export default class User {
     linkProfile.href = "photographer-page.html?id=" + this.id;
     container.appendChild(linkProfile);
     const profilePicture = document.createElement("img");
-    profilePicture.src = `images/photographers/${this.portrait}`;
+    profilePicture.src = `./images/Photographers/${this.portrait}`;
     profilePicture.classList.add("img_profile");
     linkProfile.appendChild(profilePicture);
     const name = document.createElement("h2");

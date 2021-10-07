@@ -176,10 +176,11 @@ main {
   .form_contact {
     flex-direction: column;
     position: fixed;
+    align-content: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 650px;
+    height: auto;
     width: 530px;
     background-color: #db8876;
     border-radius: 5px;
@@ -200,10 +201,36 @@ main {
       margin-bottom: 0;
     }
 
+    
+    #validation_message {
+      margin: 50px;
+      font-weight: bold;
+      font-size: 2.9em;
+      display: none;
+    }
+
     .form_name {
       margin-left: 20px;
       font-size: 2.3em;
       margin-bottom: 20px;
+    }
+
+    #btn_close {
+      margin: 20px;
+      margin-left: 50px;
+      display: none;
+    }
+
+    .btn {
+      background-color: $primary-color;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 7px;
+      height: 60px;
+      width: 160px;
+      margin-top: 20px;
+      cursor: pointer;
     }
 
     form {
@@ -226,6 +253,10 @@ main {
         font-size: 1.5em;
       }
 
+      .inputError {
+        border: 2px rgb(255, 0, 0) solid;
+      }
+
       #message {
         height: 120px;
         margin-bottom: 10px;
@@ -234,16 +265,11 @@ main {
         font-size: 1.5em;
       }
 
-      #btn_submit {
-        background-color: $primary-color;
-        color: white;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 7px;
-        height: 60px;
-        width: 160px;
-        margin-top: 20px;
-        cursor: pointer;
+      .error{
+        color: rgb(165, 0, 0);
+        text-align: right;
+        display: none;
+        font-weight: bold;
       }
     }
   }
