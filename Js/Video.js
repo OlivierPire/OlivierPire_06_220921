@@ -1,3 +1,6 @@
+import Lightbox from "./lightbox.js";
+import Profile from "./Profile.js";
+
 export default class Video {
     constructor(id,photographerId,title,tags,likes,date,price, source) {
         this.id = id,
@@ -39,6 +42,18 @@ export default class Video {
         const heart = document.createElement("i");
         heart.classList.add("fas","fa-heart","picture_heart");
         likes.appendChild(heart);
+
+        heart.addEventListener("click", () => {
+            this.likes++;
+            likesNumber.textContent = this.likes;
+            Profile._totalLikes = 1;
+            document.getElementById('totalLikes').textContent = Number(document.getElementById('totalLikes').textContent) + 1;
+        })
+
+        video.addEventListener("click", () => {
+            Lightbox.displayLightbox(this.id, this.photographerId, this.source);
+            video.setAttribute("controls", 0);
+        }) 
     }
 }
         

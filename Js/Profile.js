@@ -9,6 +9,7 @@ export default class Profile {
     this.tags = tags;
     this.price = price;
     this.media = media;
+    this._totalLikes = 0;
   }
 
   generateProfile(profileContainer) { // ajout contact
@@ -49,9 +50,8 @@ export default class Profile {
     const priceBanner = document.createElement("div");
     priceBanner.classList.add("price_banner");
     profileContainer.appendChild(priceBanner);
-    let likes = this.calculateLikes();
     const likesNumber = document.createElement("span");
-    likesNumber.textContent = likes;
+    likesNumber.id = "totalLikes";
     likesNumber.classList.add("like_number");
     priceBanner.appendChild(likesNumber);
     const heart = document.createElement("i");
@@ -61,25 +61,44 @@ export default class Profile {
     price.textContent = this.price + "€ /jour"
     price.classList.add("price");
     priceBanner.appendChild(price);
-    const form = document.querySelector(".formContent");
+
+    // Nom du photographe dans le formulaire de contact
+    const form = document.querySelector(".formContent"); 
     const formName = document.createElement("span");
     formName.textContent = this.name;
     formName.classList.add("form_name");
+    let likes = this.calculateLikes();
     form.insertBefore(formName, document.querySelector("form"));
-    this.generateMedia();
+    this.generateMedia();  
   }
+
+  set totalLikes(totalLikes) {
+    this._totalLikes = totalLikes
+    if(document.getElementById('totalLikes')) {
+      document.getElementById('totalLikes').textContent = this._totalLikes;
+    }
+    
+  }
+
+  get totalLikes() {
+    console.log('test');
+    return 2;
+  }
+
+// Calcul du nombre total de likes 
 
   calculateLikes() {
     let resultat = 0;
     this.media.forEach((media) => {
       resultat = resultat + media.likes;
     })
-    return resultat
+    this.totalLikes = resultat;
+    return resultat;
   }
 
   generateMedia() {
     this.media.forEach((media) => {
-      media.generateHtml()
+      media.generateHtml() 
     })
   }
 }

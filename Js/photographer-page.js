@@ -1,11 +1,15 @@
-import MediaFactory from "./MediaFactory.js";
 import Profile from "./Profile.js";
+import MediaFactory from "./MediaFactory.js";
 import { modalDisplay } from "./modal.js";
+import Lightbox from "./lightbox.js";
 
 const url = new URL(window.location.href);
 const idPhotographe = parseInt(url.searchParams.get("id"));
+
 const media = [];
+
 const profileContainer = document.getElementById("profile_container");
+const lightbox = new Lightbox;
 
 fetch("json/data.json")
   .then((res) => res.json())
@@ -22,17 +26,19 @@ fetch("json/data.json")
             element.likes,
             element.date,
             element.price,
-            "video" in element ? element.video : element.image            
-          )
-        );
+            "video" in element ? element.video : element.image,
+            media,
+          ) 
+        ); 
       }
     });
+    lightbox.addMedia(media);
+    
     return data.photographers;
   })
   .then((data) => {
     data.forEach((element) => {
       if (element.id === idPhotographe) {
-        console.log(media);
         const profile = new Profile(
           element.name,
           element.city,
@@ -42,13 +48,16 @@ fetch("json/data.json")
           element.id,
           element.tags,
           element.price,
-          media
+          media,         
         );
         profile.generateProfile(profileContainer);
       }
     });
   });
 
+  
+  
+  
 /* const profile = new Profile(
     element.id,
     element.photographerId,
