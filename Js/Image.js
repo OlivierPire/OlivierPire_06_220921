@@ -14,7 +14,10 @@ export default class Image {
         this.media = media
     }    
     
-    generateHtml() {        
+    generateHtml() {    
+        const tt = ["l", "m", "a"];
+        tt.sort()
+        
         const picturesContainer = document.getElementById("all_pictures_container");
         const picContainer = document.createElement("div");
         picContainer.classList.add("picture_container");
@@ -46,29 +49,31 @@ export default class Image {
         const heart = document.createElement("i");
         heart.classList.add("fas","fa-heart","picture_heart");
         likes.appendChild(heart);
+        
 
         heart.addEventListener("click", () => {
+            console.log(this.likes);
             this.likes++;
             likesNumber.textContent = this.likes;
             Profile._totalLikes = 1;
             document.getElementById('totalLikes').textContent = Number(document.getElementById('totalLikes').textContent) + 1;
-        })
+        })  
 
         // Lightbox
         img.addEventListener("click", () => {
-            Lightbox.displayLightbox(this.id, this.photographerId, this.source, this.title);
+            Lightbox.displayLightbox(this.photographerId, this.source, this.title);
         }) 
         
     }
     
-    totalLikes() {
+    /*totalLikes() {
         let resultat = 0;
     this.media.forEach((media) => {
       resultat = resultat + media.likes;
       
     })
     return resultat
-    }
+    }*/
 }
 
 

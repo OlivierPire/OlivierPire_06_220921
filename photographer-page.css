@@ -363,4 +363,60 @@ main .lightbox_title {
   bottom: 10px;
   left: 145px;
 }
+
+@media screen and (max-width: 1150px) {
+  #contact {
+    position: fixed;
+    right: 50%;
+    -webkit-transform: translate(50%, 50%);
+            transform: translate(50%, 50%);
+    bottom: 75px;
+    z-index: 20;
+  }
+  main {
+    margin: 40px;
+  }
+  main #photographer_info {
+    width: 95%;
+  }
+  header {
+    margin-left: 40px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  main .picture_container {
+    width: 100%;
+  }
+  main .picture_container .picture {
+    width: 100%;
+  }
+  #profile_container .profil_picture {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  #profile_container .profil_picture {
+    width: 120px;
+    height: 120px;
+    margin-right: 0;
+    top: 0;
+    right: -10px;
+  }
+  #profile_container .photographer_info {
+    background-color: white;
+    padding: 0;
+  }
+  #profile_container .photographer_info .name_container h1 {
+    font-size: 2em;
+  }
+  #profile_container .location {
+    font-size: 1.1em;
+  }
+  #profile_container .citation {
+    font-size: 0.9em;
+  }
+}
 /*# sourceMappingURL=photographer-page.css.map */

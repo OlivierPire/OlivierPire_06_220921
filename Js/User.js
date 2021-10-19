@@ -45,20 +45,23 @@ export default class User {
       tagsContainer.appendChild(tags);
       tags.classList.add("tag");
       tags.textContent = `#${this.tags[tag]}`;
-
-      
-      const tagsHeader = document.querySelectorAll(".tag");
-      for(let i=0; i<tagsHeader.length; i++) {
-      tagsHeader[i].addEventListener("click", () => {
-      if(tagsHeader[i].outerText === this.tags[tag]) {
-        console.log("d");
-      }
-      })
-    }
-      
     }
 
+    // Tags Filter
     
+    const tagsFilter = document.querySelectorAll(".tagNav");
+      tagsFilter.forEach((tagNav) => {
+      tagNav.addEventListener("click", () => {
+        for(let i=0; i<tagsFilter.length; i++) {
+          if(tagNav.outerText == "#" + this.tags[i]) {
+            console.log(this.tags[i]);
+            return container.style.display = "block"
+          } else {
+            container.style.display = "none"
+          }
+        }
+      })
+    })    
   }
 }
 

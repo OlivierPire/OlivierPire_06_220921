@@ -41,7 +41,6 @@ header {
 }
 
 #profile_container {
-  
   .photographer_info {
     background-color: #5252520a;
     height: 280px;
@@ -109,7 +108,6 @@ header {
     border-radius: 10px 10px 0px 0px;
   }
 }
-
 
 main {
   margin-left: 140px;
@@ -193,7 +191,7 @@ main {
       top: 30px;
       font-size: 2.2em;
       cursor: pointer;
-      color: white;    
+      color: white;
     }
 
     h2 {
@@ -202,7 +200,6 @@ main {
       margin-bottom: 0;
     }
 
-    
     #validation_message {
       margin: 50px;
       font-weight: bold;
@@ -266,7 +263,7 @@ main {
         font-size: 1.5em;
       }
 
-      .error{
+      .error {
         color: rgb(165, 0, 0);
         text-align: right;
         display: none;
@@ -330,5 +327,77 @@ main {
     color: $primary-color;
     bottom: 10px;
     left: 145px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  #contact {
+    position: fixed;
+    right: 50%;
+    transform: translate(50%, 50%);
+    bottom: 75px;
+    z-index: 20;
+  }
+
+  main {
+    margin: 40px;
+
+    #photographer_info {
+      width: 95%;
+    }
+  }
+
+  header {
+    margin-left: 40px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  main {
+    .picture_container {
+      width: 100%;
+
+      .picture {
+        width: 100%;
+      }
+    }
+  }
+
+  #profile_container {
+    .profil_picture {
+      margin-right: 10px;
+    }
+}
+}
+
+@media screen and (max-width: 555px) {
+  #profile_container {
+    .profil_picture {
+      width: 120px;
+      height: 120px;
+      margin-right: 0;
+      top: 0;
+      right: -10px;
+    }
+
+    .photographer_info{
+      background-color: white;
+      padding: 0;
+    .name_container{
+
+    h1 {
+      font-size: 2em;
+    }
+  }
+}
+
+  .location {
+    font-size: 1.1em;
+  }
+
+  .citation {
+    font-size: 0.9em;
+  }
   }
 }

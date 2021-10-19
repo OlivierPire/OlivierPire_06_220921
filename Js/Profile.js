@@ -80,11 +80,6 @@ export default class Profile {
     
   }
 
-  get totalLikes() {
-    console.log('test');
-    return 2;
-  }
-
 // Calcul du nombre total de likes 
 
   calculateLikes() {

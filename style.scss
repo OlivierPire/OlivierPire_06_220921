@@ -43,8 +43,6 @@ body {
   }
 }
 
-
-
 a {
   text-decoration: none;
   color: black;
@@ -93,13 +91,12 @@ main {
   h1 {
     position: absolute;
     font-size: 36px;
-    right: 0;
+    right: -30px;
     top: -190px;
     margin-right: 140px;
     margin-top: 70px;
     color: $primary-color;
-    font-weight: lighter;
-    
+    font-weight: lighter;    
   }
 
   .profile {
@@ -148,6 +145,10 @@ main {
     }
   }
 
+  .tagsContainer {
+    margin-bottom: 20px;
+  }
+
   main {
     h1 {
       top: -220px;
@@ -162,6 +163,8 @@ main {
       top: -160px;
       margin-right: 20px;
       margin-top: 0px;
+      right: 0px;
+      margin-bottom: 0px;
     }
   }
 

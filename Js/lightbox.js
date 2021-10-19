@@ -9,9 +9,8 @@ export default class Lightbox {
         this.media = media;
     }
     
-    static displayLightbox(id, photographerId, media, title) {
-        console.log(id, photographerId, media, title);
-
+    static displayLightbox(photographerId, media, title) {
+        console.log(this.index);
         const lightboxContainer = document.getElementById("lightbox");
         lightboxContainer.style.display = "block";
         const imgContainer = document.getElementById("lightbox_container");
@@ -25,9 +24,6 @@ export default class Lightbox {
         lightboxTitle.classList.add("lightbox_title");
         lightboxTitle.textContent = title;
         lightboxContainer.appendChild(lightboxTitle)
-
-        console.log(id ++ );
-        
         const closeLightbox = document.querySelector(".lightbox_close");
 
         closeLightbox.addEventListener("click", () => {
@@ -36,8 +32,14 @@ export default class Lightbox {
             lightboxTitle.style.display = "none"
         })
 
-        const arrowRight = document.querySelector(".arrow-right");
-        const arrowLeft = document.querySelector(".arrow-left");
+        const next = document.querySelector(".arrow-right");
+        const prev = document.querySelector(".arrow-left");
+
+        next.addEventListener('click', () => {
+            console.log(media);
+        })
+
+        
         
         // ÉTAPE 1, RÉCUPÉRER LE MEDIA CORRESPOND A L'ID DANS MON TABLEAU MEDIA. UN truc du style for(i = 0; i < Lightbox.media.length; i++) if(Lightbox.media[i].id === source)=>this.index = i;break;})
        
@@ -57,6 +59,7 @@ export default class Lightbox {
 
 
     goLeft() {
+        console.log(this.media);
         // this.index--;
         // afficher les données de this.media[this.index];
     }
