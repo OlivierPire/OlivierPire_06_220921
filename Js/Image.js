@@ -1,4 +1,5 @@
-import Lightbox from "./lightbox.js";
+import Lightbox from "./Lightbox.js";
+import Sort from "./Sort.js";
 import Profile from "./Profile.js";
 
 export default class Image {
@@ -12,12 +13,9 @@ export default class Image {
         this.price = price,
         this.source = source,
         this.media = media
-    }    
+    } 
     
-    generateHtml() {    
-        const tt = ["l", "m", "a"];
-        tt.sort()
-        
+    generateHtml() {        
         const picturesContainer = document.getElementById("all_pictures_container");
         const picContainer = document.createElement("div");
         picContainer.classList.add("picture_container");
@@ -49,10 +47,9 @@ export default class Image {
         const heart = document.createElement("i");
         heart.classList.add("fas","fa-heart","picture_heart");
         likes.appendChild(heart);
-        
 
         heart.addEventListener("click", () => {
-            console.log(this.likes);
+            console.log(likes);
             this.likes++;
             likesNumber.textContent = this.likes;
             Profile._totalLikes = 1;
@@ -61,11 +58,20 @@ export default class Image {
 
         // Lightbox
         img.addEventListener("click", () => {
-            Lightbox.displayLightbox(this.photographerId, this.source, this.title);
+            Lightbox.displayLightbox(this.id, this.source, this.title);
         }) 
         
     }
     
+    generateHtmlForLightbox(lightboxContainer) {
+        const imgContainer = document.getElementById("lightbox_container");
+        lightboxContainer.appendChild(imgContainer);
+        const lightboxMedia = document.createElement("img");
+        lightboxMedia.classList.add("lightbox_picture");
+        lightboxMedia.style.display = "block";
+        lightboxMedia.src = "images/" + this.photographerId + "/" + this.source;
+        imgContainer.appendChild(lightboxMedia);       
+    }
     /*totalLikes() {
         let resultat = 0;
     this.media.forEach((media) => {

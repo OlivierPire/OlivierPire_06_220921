@@ -11,7 +11,10 @@ export default class MediaFactory {
             throw "Le type de média n'est pas bon"
         }
     } 
+    
 } 
+
+
 
 
 

@@ -1,4 +1,4 @@
-import Lightbox from "./lightbox.js";
+import Lightbox from "./Lightbox.js";
 import Profile from "./Profile.js";
 
 export default class Video {
@@ -55,6 +55,17 @@ export default class Video {
             video.setAttribute("controls", 0);
         }) 
     }
+
+        generateHtmlForLightbox(lightboxContainer) {
+            const imgContainer = document.getElementById("lightbox_container");
+            lightboxContainer.appendChild(imgContainer);
+            const lightboxMedia = document.createElement("video");
+            lightboxMedia.classList.add("lightbox_picture");
+            lightboxMedia.style.display = "block";
+            lightboxMedia.src = "images/" + this.photographerId + "/" + this.source;
+            imgContainer.appendChild(lightboxMedia);  
+            lightboxMedia.setAttribute("controls", 0);     
+        }
 }
         
         /*;*/

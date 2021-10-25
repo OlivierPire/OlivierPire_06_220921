@@ -77,7 +77,6 @@ export default class Profile {
     if(document.getElementById('totalLikes')) {
       document.getElementById('totalLikes').textContent = this._totalLikes;
     }
-    
   }
 
 // Calcul du nombre total de likes 

@@ -1,15 +1,18 @@
 import Profile from "./Profile.js";
 import MediaFactory from "./MediaFactory.js";
 import { modalDisplay } from "./modal.js";
-import Lightbox from "./lightbox.js";
+import Lightbox from "./Lightbox.js";
+import Sort from "./Sort.js";
 
 const url = new URL(window.location.href);
 const idPhotographe = parseInt(url.searchParams.get("id"));
 
 const media = [];
-
+const date = [];
 const profileContainer = document.getElementById("profile_container");
 const lightbox = new Lightbox;
+const sort = new Sort;
+
 
 fetch("json/data.json")
   .then((res) => res.json())
@@ -31,9 +34,10 @@ fetch("json/data.json")
           ) 
         ); 
       }
-    });
+    });     
     lightbox.addMedia(media);
-    
+    sort.addMedia(media)
+    sort.sortByDate()
     return data.photographers;
   })
   .then((data) => {
@@ -55,7 +59,6 @@ fetch("json/data.json")
     });
   });
 
-  
   
   
 /* const profile = new Profile(
