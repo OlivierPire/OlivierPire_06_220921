@@ -16,9 +16,11 @@ export default class User {
     container.classList.add("profile");
     const linkProfile = document.createElement("a");
     linkProfile.href = "photographer-page.html?id=" + this.id;
+    linkProfile.setAttribute("role", "Link(h2) + image")
     container.appendChild(linkProfile);
     const profilePicture = document.createElement("img");
     profilePicture.src = `./images/Photographers/${this.portrait}`;
+    profilePicture.alt = this.name;
     profilePicture.classList.add("img_profile");
     linkProfile.appendChild(profilePicture);
     const name = document.createElement("h2");
@@ -28,13 +30,14 @@ export default class User {
     location.textContent = `${this.city}, ${this.country}`;
     location.classList.add("location");
     container.appendChild(location);
-    const citation = document.createElement("p");
-    citation.textContent = this.tagline;
-    citation.classList.add("citation");
-    container.appendChild(citation);
+    const tagline = document.createElement("p");
+    tagline.setAttribute("role", "Text paragraph")
+    tagline.textContent = this.tagline;
+    tagline.classList.add("tagline");
+    container.appendChild(tagline);
     const price = document.createElement("p");
-    citation.textContent = `${this.price}€/jour`;
-    citation.classList.add("price");
+    price.textContent = `${this.price}€/jour`;
+    price.classList.add("price");
     container.appendChild(price);
     const tagsContainer = document.createElement("div");
     container.appendChild(tagsContainer);
@@ -42,6 +45,8 @@ export default class User {
 
     for (let tag in this.tags) {
       const tags = document.createElement("a");
+      tags.setAttribute("role", "link");
+      tags.setAttribute("aria-label", "Tag")
       tagsContainer.appendChild(tags);
       tags.classList.add("tag");
       tags.textContent = `#${this.tags[tag]}`;

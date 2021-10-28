@@ -336,6 +336,7 @@ main .arrow-right {
   right: 50px;
   bottom: 50%;
   cursor: pointer;
+  z-index: 1;
 }
 
 main .arrow-left {
@@ -345,6 +346,7 @@ main .arrow-left {
   left: 50px;
   bottom: 50%;
   cursor: pointer;
+  z-index: 1;
 }
 
 main .lightbox_close {
@@ -354,6 +356,7 @@ main .lightbox_close {
   color: #901c1c;
   font-size: 3.3em;
   cursor: pointer;
+  z-index: 1;
 }
 
 main .lightbox_title {

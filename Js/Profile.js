@@ -24,7 +24,7 @@ export default class Profile {
     name.textContent = this.name;
     nameContainer.appendChild(name);
     nameContainer.appendChild(btnContact);
-    const location = document.createElement("p");
+    const location = document.createElement("h2");
     location.classList.add("location");
     location.textContent = this.city + ", " + this.country;
     photographerInfo.appendChild(location);
@@ -45,6 +45,7 @@ export default class Profile {
 
     const profilePicture = document.createElement("img");
     profilePicture.src = "images/Photographers/" + this.portrait;
+    profilePicture.alt = "photo de " + this.name;
     profilePicture.classList.add("profil_picture");
     profileContainer.appendChild(profilePicture);
     const priceBanner = document.createElement("div");
@@ -69,7 +70,6 @@ export default class Profile {
     formName.classList.add("form_name");
     let likes = this.calculateLikes();
     form.insertBefore(formName, document.querySelector("form"));
-    this.generateMedia();  
   }
 
   set totalLikes(totalLikes) {
@@ -88,12 +88,6 @@ export default class Profile {
     })
     this.totalLikes = resultat;
     return resultat;
-  }
-
-  generateMedia() {
-    this.media.forEach((media) => {
-      media.generateHtml() 
-    })
   }
 }
 

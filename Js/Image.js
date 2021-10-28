@@ -1,6 +1,6 @@
 import Lightbox from "./Lightbox.js";
-import Sort from "./Sort.js";
 import Profile from "./Profile.js";
+//import Sort from "./Sort.js";
 
 export default class Image {
     constructor(id,photographerId,title,tags,likes,date,price,source,media) {
@@ -14,7 +14,7 @@ export default class Image {
         this.source = source,
         this.media = media
     } 
-    
+        
     generateHtml() {        
         const picturesContainer = document.getElementById("all_pictures_container");
         const picContainer = document.createElement("div");
@@ -24,6 +24,7 @@ export default class Image {
         picContainer.appendChild(linkMedia);
         const img = document.createElement("img");
         img.src = `images/${this.photographerId}/${this.source}`;
+        img.alt = "titre de la photo : " + this.title;
         linkMedia.appendChild(img);
         img.classList.add("picture");
 
@@ -45,15 +46,33 @@ export default class Image {
         likesNumber.classList.add("picture_likes");
         likes.appendChild(likesNumber);
         const heart = document.createElement("i");
-        heart.classList.add("fas","fa-heart","picture_heart");
+        heart.classList.add("far","fa-heart","picture_heart");
         likes.appendChild(heart);
+        const heartFull = document.createElement("i");
+        heartFull.classList.add("fas","fa-heart","picture_heart");
+        likes.appendChild(heartFull);
+        heartFull.style.display = "none";
 
         heart.addEventListener("click", () => {
-            console.log(likes);
+            if(heartFull.style.display = "none") {
+                heart.style.display = "none"
+                heartFull.style.display = "block"
+            }
             this.likes++;
             likesNumber.textContent = this.likes;
             Profile._totalLikes = 1;
             document.getElementById('totalLikes').textContent = Number(document.getElementById('totalLikes').textContent) + 1;
+        })  
+
+        heartFull.addEventListener("click", () => {
+            if(heartFull.style.display = "block") {
+                heart.style.display = "block"
+                heartFull.style.display = "none"
+            }
+            this.likes--;
+            likesNumber.textContent = this.likes;
+            Profile._totalLikes = 1;
+            document.getElementById('totalLikes').textContent = Number(document.getElementById('totalLikes').textContent) - 1;
         })  
 
         // Lightbox

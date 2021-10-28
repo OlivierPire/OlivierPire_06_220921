@@ -1,32 +1,51 @@
-import Image from "./Image.js";
 export default class Sort {
-    
-    static media = [];
-    static index = 0;
-    static dateArray = [];
-    static likeArray = [];
-    static titleArray = [];
 
-    addMedia(media) {
-        Sort.media = media;
+    constructor(media) {
+        this.media = media
+    }
+    
+    resetHtml() {
+        const picturesContainer = document.getElementById("all_pictures_container");
+        picturesContainer.innerHTML = "";
+    }
+    
+    sortByLikes() {
+        this.resetHtml()
+        this.media.sort((a, b) => a.likes - b.likes);
+        this.media.forEach((media) => media.generateHtml());
     }
 
-    sortByDate() {
-        const select = document.querySelector("select")
-        select.addEventListener("click", () => {
-            Sort.dateArray.sort() 
-            console.log("ok");
-            generateHtml()
+    sortByDates() {
+        this.resetHtml()
+        this.media.sort((a, b) => new Date(b.date) - new Date(a.date));
+        this.media.forEach((media) => media.generateHtml())
+    }
+
+    sortByTitles() {
+        this.resetHtml()
+        this.media.sort((a, b) => {
+            if(a.title < b.title) {
+                return -1
+            } else if (a.title > b.title) {
+                return 1
+            } else {
+                return 0
+            }
+        });
+        this.media.forEach((media) => media.generateHtml())
+    }
+
+    sortBy() {
+        this.sortByTitles();
+        const select = document.getElementById("select");
+        select.addEventListener("change", (e) => {
+            if(e.target.value == "popular") {
+                this.sortByLikes()
+            } else if (e.target.value == "date") {
+                this.sortByDates()
+            } else if (e.target.value == "title") {
+                this.sortByTitles()
+            }
         })
-        Sort.media.forEach((media) => Sort.dateArray.push(media.date))
-        Sort.media.forEach((media) => Sort.likeArray.push(media.likes))  
-        Sort.media.forEach((media) => Sort.titleArray.push(media.title))     
-         
-        Sort.likeArray.sort()
-        Sort.titleArray.sort()
-        console.log(Sort.likeArray); 
     }
-    
-     
 }
-

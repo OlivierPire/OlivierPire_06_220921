@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Page photographe</title>
     <link rel="stylesheet" href="photographer-page.css">
     <script src="https://kit.fontawesome.com/976e89b6e5.js" crossorigin="anonymous"></script>
 </head>
@@ -13,7 +13,7 @@
 <body>
     <header>
         <a href="index.html">
-            <img src="images/logo.png" id="logo" alt="Fisheye Home page">
+            <img src="images/logo.png" id="logo" alt="Fisheye Home page" role="Image link">
         </a>
     </header>
 
@@ -23,7 +23,7 @@
 
         <button id="contact">Contactez-moi</button>
 
-        <div id="select_label">Trier par</div>
+        <label for="select" id="select_label">Trier par</label>
         <select class="select_list" id="select">
             <option value="popular" id="popular">Popularité</option>
             <option value="date">Date</option>
@@ -33,13 +33,13 @@
         <div id="all_pictures_container">
         </div>
 
-        <div class="form_contact">
+        <div class="form_contact" role="Dialog">
             <i class="fas fa-times close_form"></i>
             <span id="validation_message">Merci ! Votre message a bien été envoyé.</span>
             <input type="submit" id="btn_close" class="btn" value="Fermer">
             <div class="formContent">
                 <h2>Contactez-moi</h2>
-                <form action="">
+                <form method="get">
                     <label for="first">Prénom</label>
                     <input type="text" class="text_control" id="first">
                     <span class="error" id="errorFirst">Veuillez entrer votre prénom</span>

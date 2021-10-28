@@ -23,6 +23,7 @@ export default class Video {
         const video = document.createElement("video");
         video.setAttribute("controls", 0);
         video.src = `images/${this.photographerId}/${this.source}`;
+        video.alt = this.title;
         linkMedia.appendChild(video);
         video.classList.add("picture");
         const description = document.createElement("div");
