@@ -58,7 +58,7 @@ export default class User {
       tagsFilter.forEach((tagNav) => {
       tagNav.addEventListener("click", () => {
         for(let i=0; i<tagsFilter.length; i++) {
-          if(tagNav.outerText == "#" + this.tags[i]) {
+          if(tagNav.innerText == "#" + this.tags[i]) {
             console.log(this.tags[i]);
             return container.style.display = "block"
           } else {
