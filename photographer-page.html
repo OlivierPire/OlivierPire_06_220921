@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page photographe</title>
-    <link rel="stylesheet" href="photographer-page.css">
+    <link rel="stylesheet" href="styles/photographer-page.css">
     <script src="https://kit.fontawesome.com/976e89b6e5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
         <a href="index.html">
-            <img src="images/logo.png" id="logo" alt="Fisheye Home page" role="Image link">
+            <img src="images/logo.png" id="logo" alt="Fisheye Home page">
         </a>
     </header>
 
@@ -21,10 +21,10 @@
         <div id="profile_container">
         </div>
 
-        <button id="contact">Contactez-moi</button>
+        <button id="contact" aria-label="Contact me">Contactez-moi</button>
 
         <label for="select" id="select_label">Trier par</label>
-        <select class="select_list" id="select">
+        <select class="select_list" id="select" aria-label="Order by">
             <option value="popular" id="popular">Popularité</option>
             <option value="date">Date</option>
             <option value="title">Titre</option>
@@ -33,44 +33,45 @@
         <div id="all_pictures_container">
         </div>
 
-        <div class="form_contact" role="Dialog">
-            <i class="fas fa-times close_form"></i>
+        <div class="form_contact">
             <span id="validation_message">Merci ! Votre message a bien été envoyé.</span>
-            <input type="submit" id="btn_close" class="btn" value="Fermer">
-            <div class="formContent">
-                <h2>Contactez-moi</h2>
-                <form method="get">
+            <input type="submit" id="btn_close" class="btn" value="Fermer" aria-label="close contact form">
+            <div class="formContent"  role="group" tabindex="0" aria-labelledby="contactInfos">
+                <h2 id="contactInfos">Contactez-moi</h2>
+                <form method="post">
                     <label for="first">Prénom</label>
-                    <input type="text" class="text_control" id="first">
+                    <input type="text" class="text_control" id="first" aria-label="first name" aria-required="true">
                     <span class="error" id="errorFirst">Veuillez entrer votre prénom</span>
 
                     <label for="last">Nom</label>
-                    <input type="text" class="text_control" id="last">
+                    <input type="text" class="text_control" id="last" aria-label="last name" aria-required="true">
                     <span class="error" id="errorLast">Veuillez entrer votre nom</span>
 
                     <label for="email">Email</label>
-                    <input type="email" class="text_control" id="email">
+                    <input type="email" class="text_control" id="email" aria-label="email" aria-required="true">
                     <span class="error" id="errorEmail">Veuillez entrer un email</span>
 
                     <label for="message">Votre message</label>
-                    <textarea class="text_control" rows="10" cols="5" id="message"></textarea>
+                    <textarea class="text_control" rows="10" cols="5" id="message" aria-label="your message" aria-required="true"></textarea>
                     <span class="error" id="errorMsg">Veuillez entrer votre message</span>
-                    <input type="submit" id="btn_submit" class="btn" value="Envoyer">
+                    <input type="submit" id="btn_submit" class="btn" value="Envoyer" aria-label="Send">
                 </form>
             </div>  
+            <button class="close_form" aria-label="fermer"><i class="fas fa-times"></i></button>
+            
         </div>
 
-        <div id="lightbox">
-            <i class="fas fa-times lightbox_close"></i>
-            <i class="fas fa-chevron-right arrow-right"></i>
-            <i class="fas fa-chevron-left arrow-left"></i>
+        <div id="lightbox" role="dialog" aria-label="image closeup view">
+            <i tabindex="0" class="fas fa-times lightbox_close" role="button" aria-label="close dialog"></i>
+            <i tabindex="0" class="fas fa-chevron-right arrow-next arrows" role="link" aria-label="next image"></i>
+            <i class="fas fa-chevron-left arrow-prev arrows" role="link" aria-label="previous image"></i>
             <div id="lightbox_container">
                 
             </div>
             
         </div>
     </main>
-    <script type="module" src="Js/photographer-page.js"></script>
+    <script type="module" src="scripts/photographer-page.js"></script>
 </body>
 
 </html>
