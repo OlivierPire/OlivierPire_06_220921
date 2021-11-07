@@ -2,18 +2,18 @@ import Lightbox from "./Lightbox.js";
 import Profile from "./Profile.js";
 
 export default class Image {
-    constructor(id, photographerId, title, tags, likes, date, price, alt, source, media) {
-        this.id = id,
-        this.photographerId = photographerId,
-        this.title = title,
-        this.tags = tags,
-        this.likes = likes,
-        this.date = date,
-        this.price = price,
-        this.alt = alt,
-        this.source = source,
-        this.media = media
-    }
+  constructor(id, photographerId, title, tags, likes, date, price, alt, source, media) {
+    this.id = id,
+    this.photographerId = photographerId,
+    this.title = title,
+    this.tags = tags,
+    this.likes = likes,
+    this.date = date,
+    this.price = price,
+    this.alt = alt,
+    this.source = source,
+    this.media = media
+  }
 
   generateHtml() {
     // Photo
@@ -38,7 +38,6 @@ export default class Image {
     pictureTitle.classList.add("picture_title");
     pictureTitle.textContent = this.title;
     description.appendChild(pictureTitle);
-    
     const likes = document.createElement("div");
     likes.classList.add("likes");
     description.appendChild(likes);
@@ -47,14 +46,15 @@ export default class Image {
     likesNumber.classList.add("picture_likes");
     likes.appendChild(likesNumber);
 
-    // Coeur 
-    const heart = document.createElement("i");      
+    // Coeur
+    const heart = document.createElement("i");
     heart.setAttribute("aria-label", "likes");
-    heart.setAttribute("role", "image");
+    heart.setAttribute("role", "button");
     heart.classList.add("far", "fa-heart", "picture_heart");
     likes.appendChild(heart);
     const heartFull = document.createElement("i");
     heartFull.classList.add("fas", "fa-heart", "picture_heart");
+    heart.setAttribute("role", "button");
     likes.appendChild(heartFull);
     heartFull.style.display = "none";
 
@@ -87,27 +87,49 @@ export default class Image {
     img.addEventListener("click", () => {
       Lightbox.displayLightbox(this.id, this.source, this.title);
     });
+
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        Lightbox.displayLightbox(this.id, this.source, this.title);
+      }
+    });
   }
 
   generateHtmlForLightbox(lightboxContainer) {
-    const imgContainer = document.getElementById("lightbox_container");
-    lightboxContainer.appendChild(imgContainer);
     const lightboxMedia = document.createElement("img");
     lightboxMedia.classList.add("lightbox_picture");
     lightboxMedia.style.display = "block";
     lightboxMedia.src = "images/" + this.photographerId + "/" + this.source;
     lightboxMedia.alt = this.alt;
-    imgContainer.appendChild(lightboxMedia);
+    lightboxMedia.dataset.ident = this.title + this.id;
+    lightboxContainer.appendChild(lightboxMedia);
     const lightboxTitle = document.createElement("span");
     lightboxTitle.classList.add("lightbox_title");
     lightboxTitle.textContent = this.title;
-    lightboxContainer.appendChild(lightboxTitle);       
-    
+    lightboxTitle.dataset.ident = this.title + this.id;
+    lightboxContainer.appendChild(lightboxTitle);
+
+    const closeLightbox = document.querySelector(".lightbox_close");
+    closeLightbox.addEventListener("click", () => {
+      lightboxTitle.innerHTML = "";
+      lightboxMedia.innerHTML = "";
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        lightboxTitle.innerHTML = "";
+        lightboxMedia.innerHTML = "";
+      }
+    });
+  }
+
+  deleteHtmlForLightbox() {
+    document.querySelectorAll(`[data-ident="${this.title}${this.id}"]`).forEach((e) => e.remove());
   }
 }
 
-
-/*const moreLikes = () => {
+/*
+const moreLikes = () => {
       this.likes++;
       likesNumber.textContent = this.likes;
       Profile._totalLikes = 1;
@@ -153,4 +175,5 @@ export default class Image {
         heartFull.style.display = "none";
       }
       lessLikes();
-    });*/
+    });
+*/

@@ -1,10 +1,10 @@
 import User from "./Users.js";
 
-const main = document.querySelector('main');
+const main = document.querySelector("main");
 
 const photographers = [];
 
-fetch('json/data.json')
+fetch("json/data.json")
   .then((res) => res.json())
   .then((data) => {
     data.photographers.forEach((element) => {
@@ -24,12 +24,11 @@ fetch('json/data.json')
   });
 
 // Scroll Event
-window.addEventListener('scroll', () => {
-  const backContent = document.getElementById('backContent');
+window.addEventListener("scroll", () => {
+  const backContent = document.getElementById("backContent");
   if (window.scrollY > 130) {
-    backContent.style.display = 'block';
+    backContent.style.display = "block";
   } else {
-    backContent.style.display = 'none';
+    backContent.style.display = "none";
   }
 });
-

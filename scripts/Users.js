@@ -66,19 +66,21 @@ export default class User {
           }
         }
       })
-    })    
+    });
+
+    // Tag filter avec ctrl clavier
+    
+    tagsFilter.forEach((tagNav) => {
+      tagNav.addEventListener("keydown", (e) => {
+        for(let i=0; i<tagsFilter.length; i++ && e.key == "Enter") {
+          if(tagNav.innerText == "#" + this.tags[i]) {
+            console.log(this.tags[i]);
+            return container.style.display = "block"
+          } else {
+            container.style.display = "none"
+          }
+        }
+      })
+    });
   }
 }
-
-/* container.innerHTML = `
-    <a href="#">
-        <img src="images/photographers/${this.portrait}" alt="" class="img_profile">
-        <h2 class="name">${this.name}</h2>
-    </a>
-    <p class="location">${this.city}, ${this.country}</p>
-    <p class="citation">${this.tagline}</p>
-    <p class="price">${this.price}€/jour</p>
-    <div class="hashtag_container">
-        <a href="" class="hashtag">${this.tags}</a>
-    </div>
-    `; */

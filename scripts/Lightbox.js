@@ -1,3 +1,8 @@
+        
+const next = document.querySelector(".arrow-next");
+const prev = document.querySelector(".arrow-prev");
+const lightboxContainer = document.getElementById("lightbox");
+const lightbox = document.getElementById("lightbox")
 export default class Lightbox {
     
     static media = [];
@@ -17,49 +22,53 @@ export default class Lightbox {
         }
 
         Lightbox.displaySlide();
-        
-        const next = document.querySelector(".arrow-next");
-        const prev = document.querySelector(".arrow-prev");
 
-        next.addEventListener('click', () => {
+        function handlerPlus() {
             Lightbox.slide(1);
-        })
+        }
 
-        prev.addEventListener('click', () => {
-            Lightbox.slide(-1)
-        })  
-    }
+        function handlerMoins() {
+            Lightbox.slide(-1);
+        }
+    
 
-    static slide(operation) {
-        Lightbox.index = (((Lightbox.index + operation)%Lightbox.media.length)+Lightbox.media.length)%Lightbox.media.length;
-        Lightbox.displaySlide();
-    }
-
-    static displaySlide() {
-        const lightboxContainer = document.getElementById("lightbox");
-        lightboxContainer.style.display = "block";
-        Lightbox.media[Lightbox.index].generateHtmlForLightbox(lightboxContainer);      
         const closeLightbox = document.querySelector(".lightbox_close");
         closeLightbox.addEventListener("click", () => {
+            lightbox.style.display = "none";
             lightboxContainer.style.display = "none";
-            
-        })
+            next.removeEventListener('click', handlerPlus);
+            prev.removeEventListener('click', handlerMoins);
 
-        window.addEventListener("keydown", e => {
+        });
+        
+        window.addEventListener("keydown", function(e) {
             if (e.key === "+") {
-                Lightbox.slide(1)
+                handlerPlus()
             } else if (e.key === "-") {
-                Lightbox.slide(-1)
+                handlerMoins()
             }
         })
         
         window.addEventListener("keydown", e => {
             if (e.key === "Escape") {
+                lightbox.style.display = "none";
                 lightboxContainer.style.display = "none";
             } 
         })
 
-        console.log(Lightbox.index);
+        next.addEventListener('click', handlerPlus)
+        prev.addEventListener('click', handlerMoins)  
+    }
+
+    static slide(operation) {
+        Lightbox.media[Lightbox.index].deleteHtmlForLightbox();
+        Lightbox.index = (((Lightbox.index + operation)%Lightbox.media.length)+Lightbox.media.length)%Lightbox.media.length;
+        Lightbox.displaySlide();
+    }
+
+    static displaySlide() {
+        lightboxContainer.style.display = "block";
+        Lightbox.media[Lightbox.index].generateHtmlForLightbox(lightboxContainer);      
     } 
 }
 
